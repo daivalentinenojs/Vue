@@ -1,0 +1,70 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+<div id="exercise">
+  <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+  <div>
+    <button @click="startEffect">Start Effect</button>
+    <div id="effect" :class="{highlight : effect, shrink : !effect}"></div>
+  </div>
+  <!-- 2) Create a couple of CSS classes and attach them via the array syntax -->
+  <div :class="[{blue : true}, {'white-font' : true}]">I got no class :(</div>
+  <!-- 3) Let the user en ter a class (create some example classes) and attach it -->
+  <div>
+    <input type="text" v-model='class1'>
+    <div :class="applyClass">{‌{class1}}</div>
+  </div>
+  <!-- 4) Let the user enter a class and enter true/ false for another class (create some example classes) and attach the classes -->
+  <div>
+    <input type="text" v-model='class1'>
+    <input type="text" v-model='activate'>
+    <div :class="[applyClass, activateClass]">{‌{activate}}</div>
+  </div>
+  <!-- 5) Repeat 3) but now with values for styles (instead of class names). Attach the respective styles.  -->
+  <div>
+    <input type="text" v-model='myStyles' value="change background color">
+    <div :style="applyStyle"></div>
+  </div>
+  <!-- 6) Create a simple progress bar with setInterval and style bindings. Start it by hitting the below button. -->
+  <div>
+    <!-- <button v-on:click="startProgress">Start Progress</button> -->
+    <div></div>
+  </div>
+</div>
+
+<script src="app.js">
+new Vue({
+  el: '#exercise',
+  data: {
+    effect: true,
+    class1: '',
+    activate: '',
+    myStyles: ''
+  },
+  methods: {
+    startEffect: function() {
+      let vm = this;
+      setInterval(function(){
+        vm.effect = !vm.effect;
+      }, 1000);
+    }
+  },
+  computed:{
+    applyClass: function(){
+      console.log(this.class1);
+      return `${this.class1}`;
+    },
+    activateClass: function(){
+      console.log(this.activate);
+      if (this.activate == 'true') return 'white-font';
+    },
+    applyStyle: function(){
+      return {
+        backgroundColor: this.myStyles,
+        width: '200px',
+        height: '200px'
+      }
+    }
+  }
+});
+</script>
