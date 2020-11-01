@@ -1,0 +1,16 @@
+<!-- Put this in the HTML section in JSFiddle! -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+<div id="app">
+	<button v-on:click="increase(2, $event)">Click Me</button>
+	<button v-on:click="counter++">Click Me</button>
+	<p>{{ counter * 2 > 10 ? 'Grater than 10' : 'Smaller than 10' }}</p>
+	<p v-on:mousemove="updateCoordinates">
+		Coordinates: {{ x }} / {{ y }}
+		- <span v-on:mousemove.stop="">DEAD SPOT</span>
+		<!-- - <span v-on:mousemove="dummy">DEAD SPOT</span> -->
+	</p>
+	<input type="text" v-on:keyup.enter="alertMe">
+</div>
+
+<script src="app.js"></script>
