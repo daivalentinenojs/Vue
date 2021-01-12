@@ -1,9 +1,9 @@
-import TeamsList from './pages/teams/TeamsList.vue';
-import UsersList from './pages/users/UsersList.vue';
+import TeamsList from './components/pages/TeamsList.vue';
+import UsersList from './components/pages/UsersList.vue';
 import TeamMembers from './components/teams/TeamMembers.vue';
-import NotFound from './pages/nav/NotFound.vue';
-import TeamsFooter from './pages/teams/TeamsFooter.vue';
-import UsersFooter from './pages/users/UsersFooter.vue';
+import NotFound from './components/pages/NotFound.vue';
+import TeamsFooter from './components/pages/TeamsFooter.vue';
+import UsersFooter from './components/pages/UsersFooter.vue';
 
 const router = createRouter({
   history: createWebHistory(),
